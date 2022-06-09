@@ -29,7 +29,7 @@ and a display of the parser states.
 the grammar has been *canonicalised* for execution into a BNF form:
 repetition constructs, bracketed alternates and multi-character quoted strings have been expanded. 
 The difference can be examined using the *parsed*/*compiled* radio buttons. 
-The grammar can be viewed either in the ixml (texual) format or the XML form, dependent on the *XML"/*ixml* radio buttons .)
+The grammar can be viewed either in the ixml (texual) format or the XML form, dependent on the *XML*/*ixml* radio buttons .)
 
 
 
