@@ -74,6 +74,6 @@ or directly from Javascript (albeit within a browser for now - the browser DOM i
 
 
 
-**It's called `*j*ωiXML` for reasons induced by my electrical engineering background.**
+**It's called `jωiXML` for reasons induced by my electrical engineering background.**
 
 
