@@ -10,7 +10,7 @@ ixml 'engine' written in Javascript. For fuller details of Invisible XML see [ht
 For details of SaxonJS see [Saxonica](https://www.saxonica.com/saxon-js/documentation2/index.html)
 
 ## One-stop setup and go
-Firstly unzip the file `'jwiXML.zip` into a folder in your localhost web server. 
+Firstly unzip the file `jwiXML.zip` into a folder in your localhost web server. 
 Then load the web page `jwiXML.xhtml` into your browser from your local host.. 
 
 There are two sections, which can be viewed by clicking the appropriate expander:
