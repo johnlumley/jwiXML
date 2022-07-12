@@ -2,42 +2,32 @@
 
 John Lumley
 
-2022jun09
+2022jul12
 
-This is the README for my attempt at an *Invisible XML* processor 
-that runs in the browser using SaxonJS and a custom-constructed
-ixml 'engine' written in Javascript. For fuller details of Invisible XML see [https://invisiblexml.org/](https://invisiblexml.org/). 
+This is the README for the *j*ωiXML  *Invisible XML* processor 
+to run from an XSLT program executing in a browser, using SaxonJS and a custom-constructed
+ixml 'engine' written in JavaScript. It contains the necessary JavaScript library, an XSLT 'stub' set of functions to invoke from XSLT,
+and a simple sample application.
+
+For fuller details of Invisible XML see [https://invisiblexml.org/](https://invisiblexml.org/). 
 For details of SaxonJS see [Saxonica](https://www.saxonica.com/saxon-js/documentation2/index.html)
 
 ## One-stop setup and go
-Firstly unzip the file `jwiXML.zip` into a folder in your localhost web server. 
-Then load the web page `jwiXML.xhtml` into your browser from your local host.. 
+Firstly unzip the file `'jwiXML.zip` into a folder in your localhost web server. 
+Then load the web page `sample/jwiXML.sample.xhtml` into your browser from your local host.
+You should see a display of a grammar, a very simple input and the resulting parse tree.
 
-There are two sections, which can be viewed by clicking the appropriate expander:
--  **Predefined Test examples**, where you will see some example iXML grammars, 
-their parses and some input strings and results of parsing those strings against the supplied grammar.
-These examples are defined in the file `jwiXML.xml` or other files indirected therefrom - see the notes in that file.
-- **Interactive Processor**, where you can load or edit grammars and try seeing whether 
-differing input strings parse against that grammar and what the result is. Clicking on a green sample grammar will load it. 
-Clicking on **Go!** will first parse/compile the grammar and if successful, and there is a non-empy input string,
-parse that string against the grammar. 
-Check boxes control whether you will only get one answer in the case of ambiguous solutions, 
-and a display of the parser states.  
+To generate your own application within a SaxonJS environment:
 
-
-(Note that the difference between a parsed and compiled grammar is that in the latter 
-the grammar has been *canonicalised* for execution into a BNF form:
-repetition constructs, bracketed alternates and multi-character quoted strings have been expanded. 
-The difference can be examined using the *parsed*/*compiled* radio buttons. 
-The grammar can be viewed either in the ixml (texual) format or the XML form, dependent on the *XML*/*ixml* radio buttons .)
-
-
+- Ensure you link to the iXML processor via a script reference in your top-level web page
+- Include 'jwiXML.processor.xsl' in your application and export the complete XSLT package/stylesheet,
+    targetted for SaxonJS 2+ using SaxonEE in the normal way. 
 
 
 ## Status of the implementation
 At present it appears to be running pretty well and is capable 
 of processing the ixml specification using the grammar of the ixml specification. in O(300ms).
-This is still experimental, but fully-functioning code that passes all grammar and parse tests
+This is approaching a production status, but fully-functioning code that passes all (non-infinitely-abiguous) grammar and parse tests
 in the current test suite. The areas still under develoment/change include:
 
 - Checking for an infinitely ambiguous grammar (e.g. `S: S; 'a'.`). 
@@ -46,34 +36,39 @@ in the current test suite. The areas still under develoment/change include:
   If there are errors, in some cases you may get a `SaxonJS.XError` thrown.
 
 ## Supplied files
-There are five types of files in this distribution:
+There are four types of files in this distribution:
 
-1. The compiled Javascript file that defines the iXML processor:   `jwiXML.adv.cls.js`.   
-1. A web page and associated CSS (`jwiXML.xhtml` and `jwiXML.css` and the directories `styles` and `logos`) that references the Javascript files above 
-and SaxonJS2 and then invokes `SaxonJS.transform()`, with suitable invocation arguments.
-1. An exported XSLT program for SaxonJS (`jwiXML.sef.json`) which processes a control file (`jwiXML.xml`). 
-    This collects and executes simple tests designed for developing and examining the processor, 
-    as well as providing an interactive ability to edit and select grammars and inputs, showing the results
-    as and giving other diagnostic information such as tracing Earley parser execution and so forth.
-1. Some simple test or sample declarations (in `jwiXML.xml` or `myTests/*.xml`) defined in XML as `test[grammar][input*]`
-    or `sample[@href]` constructs, where the grammars and the inputs
-    can be supplied as text or collected from a file.
-    Grammars can be presented in text, or (with a `@syntax = 'xml'`decoration) as the XML form of an ixml grammar.
+1. The compiled Javascript file that defines the iXML processor:   `jwiXML.adv.cls.js`.  
+1. An XSLT library file (`dist/jwiXML.processor.xsl`) which provides a small set of 
+    XSLT functions for compiling iXML grammars to run in the processor.
+    See comments within that file for descriptions of those functions. 
+1. A sample web page (`sample/jwiXMLsample.xhtml`) which loads SaxonJS and the iXML processor
+    and executes the exported form (`sample/jwiXML.sample.sef.json`) of a trivial 
+    sample XSLT program `jwiXML.sample.xsl`. 
 1. A runtime version of SaxonJS (in directory `SaxonJS`) referenced from the web page, 
     and included subject to the LICENCE file therein.
  
+## Interactive workbench
+An [interactive iXML 'workbench'](https://johnlumley.github.io/jwiXML.xhtml) using *j*ωiXML is available,
+from which grammars and input strings can be loaded, edited and processed from a variety of sources 
+including the InvisibleXML [test suites and sample grammars](https://github.com/invisiblexml/ixml/), as well as local filestores. 
 
-## Invocation from other programs 
-I fully intend this processor to be invocable from either SaxonJS/XSLT programs 
-or directly from Javascript (albeit within a browser for now - the browser DOM is employed). More details will appear here. 
-### SaxonJS/XSLT invocation
- To be completed
+## SaxonJS/XSLT invocation
+  The XSLT file `dist/jwiXML.processor.xsl` provides all necessary interfaces to compile and use iXML grammars to parse input strings.
+  The two most frequently used are the functions:
+  - `jwL:compileGrammar($grammar-source)` which compiles the iXML grammar 
+     (supplied either as text string or an already-parsed XML version) and produces a 'Grammar'
+     JavaScript object.
+  - `jwL:parse($grammar,$input as xs:string) as map(*)` which parses the input string against the
+     already-compiled grammar, returning a map with several entries, of which the `tree` member 
+     contains the (main) parse tree or an error report.
+     
+(See the comments in the XSLT file for more details.)
  
-### JavaScript invocation
+## JavaScript invocation
  To be completed
 
 
 
 **It's called `jωiXML` for reasons induced by my electrical engineering background.**
-
 
