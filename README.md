@@ -57,13 +57,17 @@ including the InvisibleXML [test suites and sample grammars](https://github.com/
 
 ## SaxonJS/XSLT invocation
   The XSLT file `dist/jwiXML.processor.xsl` provides all necessary interfaces to compile and use iXML grammars to parse input strings.
-  The two most frequently used are the functions:
+  The three most frequently used are the functions:
   - `jwL:compileGrammar($grammar-source)` which compiles the iXML grammar 
      (supplied either as text string or an already-parsed XML version) and produces a 'Grammar'
      JavaScript object.
   - `jwL:parse($grammar,$input as xs:string) as map(*)` which parses the input string against the
      already-compiled grammar, returning a map with several entries, of which the `tree` member 
      contains the (main) parse tree or an error report.
+  - `jwL:parseRecords($grammar,$input as xs:string, $separator as xs:string) as element()*` which parses the set of records 
+     contained within the input string against the
+     already-compiled grammar, returning a sequence of elements for each parse. `$separator` is treated as
+     a regular expression matching the record separator character sequence.
      
 (See the comments in the XSLT file for more details.)
  
