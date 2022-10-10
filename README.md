@@ -2,7 +2,7 @@
 
 John Lumley
 
-2022jul12
+2022oct10
 
 This is the README for the *j*ωiXML  *Invisible XML* processor 
 to run from an XSLT program executing in a browser, using SaxonJS and a custom-constructed
@@ -47,7 +47,7 @@ There are four types of files in this distribution:
 1. A sample web page (`sample/jwiXMLsample.xhtml`) which loads SaxonJS and the iXML processor
     and executes the exported form (`sample/jwiXML.sample.sef.json`) of a trivial 
     sample XSLT program `jwiXML.sample.xsl`. 
-1. A runtime version of SaxonJS 2.4 (in directory `SaxonJS`) referenced from the web page, 
+1. A runtime version of SaxonJS 2.5 (in directory `SaxonJS`) referenced from the web page, 
     and included subject to the LICENCE file therein.
  
 ## Interactive workbench
