@@ -2,7 +2,7 @@
 
 John Lumley
 
-2022oct10
+2022oct11
 
 This is the README for the *j*ωiXML  *Invisible XML* processor 
 to run from an XSLT program executing in a browser, using SaxonJS and a custom-constructed
@@ -27,7 +27,7 @@ To generate your own application within a SaxonJS environment:
 ## Status of the implementation
 At present it appears to be running well and is capable 
 of processing the ixml specification using the grammar of the ixml specification in O(300ms).
-This is approaching production status, with fully-functioning code that passes all (non-infinitely-abiguous) grammar and parse tests
+This is approaching production status, with fully-functioning code that passes all (non-infinitely-ambiguous) grammar and parse tests
 in the current test suite. The areas still under development/change include:
 
 - Checking much more accurately for infinitely ambiguous grammar cases (e.g. `S: S; 'a'.`). 
@@ -58,9 +58,12 @@ including the InvisibleXML [test suites and sample grammars](https://github.com/
 ## SaxonJS/XSLT invocation
   The XSLT file `dist/jwiXML.processor.xsl` provides all necessary interfaces to compile and use iXML grammars to parse input strings.
   The three most frequently used are the functions:
-  - `jwL:compileGrammar($grammar-source)` which compiles the iXML grammar 
+  - `jwL:compileGrammar($grammar-source, $options?)` which compiles the iXML grammar 
      (supplied either as text string or an already-parsed XML version) and produces a 'Grammar'
-     JavaScript object.
+     JavaScript object. `$options` is a map (defaulting empty when no argument is present)
+     with the following possible entries: 
+      - `twRewrites` as `xs:boolean` - use the 'Tovey-Walsh' rewrites for repetition
+        ( `f+ => f-plus. f-plus = f | (f, f-plus).` ).
   - `jwL:parse($grammar,$input as xs:string) as map(*)` which parses the input string against the
      already-compiled grammar, returning a map with several entries, of which the `tree` member 
      contains the (main) parse tree or an error report.
