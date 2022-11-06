@@ -2,9 +2,9 @@
 
 John Lumley
 
-2022oct11
+2022nov06
 
-This is the README for the *j*ωiXML  *Invisible XML* processor 
+This is the README for the *j*ωiXML  *Invisible XML* processor, version 1.0.1, 
 to run from an XSLT program executing in a browser, using SaxonJS and a custom-constructed
 ixml 'engine' written in JavaScript. It contains the necessary JavaScript library, an XSLT 'stub' set of functions to invoke from XSLT,
 and a simple sample application. An [interactive iXML 'workbench'](https://johnlumley.github.io/jwiXML.xhtml) is also available.
