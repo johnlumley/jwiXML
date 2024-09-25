@@ -14,7 +14,7 @@ I've been involved in the [QT4 Community Group](https://qt4cg.org/) since its
             grammar.
 
 This folder contains iXML grammars for the 'near-current'
-            draft 4.0 versions of the Xpath and XQuery grammars. These are derived programmatically
+            draft 4.0 versions of the XPath and XQuery grammars. These are derived programmatically
             (with a modicum of automated patching) directly from the grammar definitions used to
             generate the specification grammars [XPath
                EBNF](https://qt4cg.org/specifications/xquery-40/xpath-40.html#id-grammar) and [XQuery
@@ -42,7 +42,7 @@ in my in-browser [interactive iXML 'workbench'](https://johnlumley.github.io/jwi
 
 Each of the (iXML) grammars contains a date-stamp in a comment near the top which can
 be used to verify whether it is 'up to date', by comparison with the history of the
-file: [https://github.com/qt4cg/qtspecs/blob/master/specifications/grammar-40/xpath-grammar.xml](https://github.com/qt4cg/qtspecs/blob/master/specifications/grammar-40/xpath-grammar.xml)
+grammar definition file: [https://github.com/qt4cg/qtspecs/blob/master/specifications/grammar-40/xpath-grammar.xml](https://github.com/qt4cg/qtspecs/blob/master/specifications/grammar-40/xpath-grammar.xml)
 
 Whilst the grammars have been tested across the 35k expressions of the QT4 test sets,
  with only some 50 failures, there are known areas where the grammar fails or produces
