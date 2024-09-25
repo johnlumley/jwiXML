@@ -35,8 +35,10 @@ The grammars are presented in three different versions of iXML:
   proposed as an additional part of iXML, decisions on it have not yet been made.
 
 For both these grammars, there is also a 'reduced tree' version which truncates the very
-deep trees that normally result from parsing. A suitable moderately large sample
-expression to test parsing is included for each grammar.
+deep trees that normally result from parsing.
+
+All these grammars are available as samples (with example expressions to test)
+in my in-browser [interactive iXML 'workbench'](https://johnlumley.github.io/jwiXML.xhtml).
 
 Each of the (iXML) grammars contains a date-stamp in a comment near the top which can
 be used to verify whether it is 'up to date', by comparison with the history of the
