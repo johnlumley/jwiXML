@@ -29,7 +29,7 @@ The grammars are presented in three different versions of iXML:
  
 - `1.1+`, being the `1.1` version with the addition of a
   set-subtraction operator (see below), which is used to exclude certain reserved
-  keywords from nome name concepts, such as `function` being reserved from
+  keywords from some name concepts, such as `function` being reserved from
   use a the name of a function call. As far as I'm aware, **this iXML feature is not
   currently supported by any other implementation** and whilst having been
   proposed as an additional part of iXML, decisions on it have not yet been made.
