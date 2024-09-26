@@ -112,7 +112,7 @@ The three most frequently used are the functions:
 This file also contains XSLT-coded implementations of
   - [fn:invisible-xml()](https://qt4cg.org/specifications/xpath-functions-40/Overview.html#func-invisible-xml") (in the <code>jwL:</code> namespace), corresponding to the signature and semantics given in the current draft of
                      [XPath and XQuery Functions and
-                     Operators 4.0](https://qt4cg.org/specifications/xslt-40/Overview.html) 
+                     Operators 4.0](https://qt4cg.org/specifications/xpath-functions-40/Overview.html) 
      
 (See the comments in the XSLT file for more details.)
  
