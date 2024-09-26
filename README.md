@@ -72,7 +72,7 @@ Version 1.5 of the workbench (released September 2024) uses version 1.1.2 of the
 
 ## SaxonJS/XSLT invocation
 The XSLT file `dist/jwiXML.processor.xsl` provides all necessary interfaces to compile and use iXML grammars to parse input strings.
-The three most frequently used are the functions:
+The prefix `jwL` is bound to the namespace `https://github.com/johnlumley`. The three most frequently used are the functions:
   - `jwL:compileGrammar($grammar-source, $options?)` which compiles the iXML grammar 
      (supplied either as text string or an already-parsed XML version) and produces a 'Grammar'
      JavaScript object. `$options` is a map (defaulting empty when no argument is present)
