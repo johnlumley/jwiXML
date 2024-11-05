@@ -94,4 +94,7 @@ operator is currently used on the productions for `FunctionCall`,
                `QuotAttrContentChar` and `AposAttrContentChar` and indirectly
                from `CompElemConstructor` and `CompAttrConstructor`. 
                The `1.0` and `1.1` versions do *not* use this operator.
-       
+
+### Change Log
+**2024nov05** - Updated grammars to current, added grammars for XSLT Patterns [https://qt4cg.org/specifications/xslt-40/Overview.html#pattern-syntax], 
+XQuery Update and XQuery FullText variants. Changed grammar names to drop `.extracted`.
