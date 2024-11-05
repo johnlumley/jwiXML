@@ -2,7 +2,7 @@
 
 John Lumley
 
-2024sep25
+2024nov05
 
 This folder contains 'near-current' XPath and XQuery 4.0 grammars in iXML format.
 
@@ -14,7 +14,7 @@ I've been involved in the [QT4 Community Group](https://qt4cg.org/) since its
             grammar.
 
 This folder contains iXML grammars for the 'near-current'
-            draft 4.0 versions of the XPath and XQuery grammars. These are derived programmatically
+            draft 4.0 versions of the XPath and XQuery grammars, as well as the variants for XSLT patterns, and XQuery Update and Fulltext.. These are derived programmatically
             (with a modicum of automated patching) directly from the grammar definitions used to
             generate the specification grammars [XPath
                EBNF](https://qt4cg.org/specifications/xquery-40/xpath-40.html#id-grammar) and [XQuery
